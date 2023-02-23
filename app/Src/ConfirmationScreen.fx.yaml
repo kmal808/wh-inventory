@@ -1,0 +1,123 @@
+ConfirmationScreen As screen:
+    Height: =Max(App.Height, App.DesignHeight)
+    LoadingSpinnerColor: =RGBA(105, 121, 126, 1)
+    Width: =Max(App.Width, App.DesignWidth)
+
+    Rectangle1_1 As rectangle:
+        BorderColor: =RGBA(0, 0, 0, 0)
+        BorderStyle: =BorderStyle.None
+        BorderThickness: =2
+        DisabledFill: =RGBA(166, 166, 166, 1)
+        Fill: =RGBA(74, 85, 88, 1)
+        FocusedBorderThickness: =4
+        Height: =1136
+        HoverFill: =RGBA(105, 121, 126, 1)
+        PressedFill: =RGBA(105, 121, 126, 1)
+        TabIndex: =0
+        Width: =640
+        ZIndex: =1
+
+    TextBox1_9 As label:
+        Align: =Center
+        BorderColor: =RGBA(0, 0, 0, 0)
+        BorderStyle: =BorderStyle.None
+        BorderThickness: =2
+        Color: =RGBA(255, 255, 255, 1)
+        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        FocusedBorderThickness: =4
+        Font: =Font.Lato
+        Height: =255
+        HoverBorderColor: =TextBox1_9.BorderColor
+        HoverColor: =TextBox1_9.Color
+        HoverFill: =TextBox1_9.Fill
+        PressedBorderColor: =TextBox1_9.BorderColor
+        PressedColor: =TextBox1_9.Color
+        PressedFill: =TextBox1_9.Fill
+        Size: =50
+        Text: ="Order placed successfully"
+        Width: =475
+        X: =82.5
+        Y: =452
+        ZIndex: =2
+
+    Image1_1 As image:
+        ApplyEXIFOrientation: =false
+        BorderColor: =RGBA(0, 0, 0, 0)
+        BorderStyle: =BorderStyle.None
+        BorderThickness: =2
+        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+        DisabledFill: =RGBA(0, 0, 0, 0)
+        FocusedBorderThickness: =4
+        Height: =127.090641842234
+        HoverBorderColor: =RGBA(0, 0, 0, 0)
+        HoverFill: =RGBA(0, 0, 0, 0)
+        Image: =check_white
+        PressedBorderColor: =RGBA(0, 0, 0, 0)
+        PressedFill: =RGBA(0, 0, 0, 0)
+        Width: =161.313432835821
+        X: =240
+        Y: =325
+        ZIndex: =3
+
+    Button1_3 As button:
+        BorderColor: =RGBA(255, 255, 255, 1)
+        BorderStyle: =Solid
+        BorderThickness: =3
+        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        DisabledFill: =RGBA(244, 244, 244, 1)
+        Fill: =RGBA(0, 0, 0, 0)
+        FocusedBorderColor: =ColorFade(Self.Fill, -75%)
+        Font: =Font.Lato
+        FontWeight: =Normal
+        Height: =97
+        HoverBorderColor: =RGBA(0, 0, 0, 0)
+        HoverColor: =RGBA(255, 255, 255, 1)
+        HoverFill: =ColorFade(RGBA(105, 121, 126, 1), -10%)
+        OnSelect: |-
+            =Launch("mailto:"&User().Email&"?subject=Restock&body=Product Name: "&ProductNameText.Text& "%0D%0A"&"Description: "&DescriptionText.Text& "%0D%0A"&"Order Quantity: "&OrderQuantityText.Text& "%0D%0A"&"Total Amount: "&TotalAmountText.Text)
+        PressedBorderColor: =ColorFade(RGBA(105, 121, 126, 1), -50%)
+        PressedColor: =RGBA(255, 255, 255, 1)
+        PressedFill: =ColorFade(RGBA(105, 121, 126, 1), -30%)
+        RadiusBottomLeft: =80
+        RadiusBottomRight: =80
+        RadiusTopLeft: =80
+        RadiusTopRight: =80
+        Size: =30
+        Text: ="Email"
+        Width: =255
+        X: =49
+        Y: =983.0447761194027
+        ZIndex: =4
+
+    Button1_4 As button:
+        BorderColor: =RGBA(255, 255, 255, 1)
+        BorderStyle: =Solid
+        BorderThickness: =3
+        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        DisabledFill: =RGBA(244, 244, 244, 1)
+        Fill: =RGBA(0, 0, 0, 0)
+        FocusedBorderColor: =ColorFade(Self.Fill, -75%)
+        Font: =Font.Lato
+        FontWeight: =Normal
+        Height: =97
+        HoverBorderColor: =RGBA(0, 0, 0, 0)
+        HoverColor: =RGBA(255, 255, 255, 1)
+        HoverFill: =ColorFade(RGBA(105, 121, 126, 1), -10%)
+        OnSelect: =Navigate(StoreInventoryScreen,ScreenTransition.Fade)
+        PressedBorderColor: =ColorFade(RGBA(105, 121, 126, 1), -50%)
+        PressedColor: =RGBA(255, 255, 255, 1)
+        PressedFill: =ColorFade(RGBA(105, 121, 126, 1), -30%)
+        RadiusBottomLeft: =80
+        RadiusBottomRight: =80
+        RadiusTopLeft: =80
+        RadiusTopRight: =80
+        Size: =30
+        Text: ="Home"
+        Width: =255
+        X: =332
+        Y: =983
+        ZIndex: =5
+

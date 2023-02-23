@@ -1,0 +1,177 @@
+MainScreen As screen:
+    Height: =Max(App.Height, App.DesignHeight)
+    LoadingSpinnerColor: =RGBA(105, 121, 126, 1)
+    OnVisible: |-
+        =ClearCollect(ProductCollect, AddColumns(Product, "Stock", Round(DefaultSellingQuantity*Rand()*10,0)));
+        ClearCollect(Products, AddColumns(ProductCollect, "SortStock", (DefaultSellingQuantity/Stock)*100));
+        Clear(SearchRecord)
+    Width: =Max(App.Width, App.DesignWidth)
+
+    Rectangle1 As rectangle:
+        BorderColor: =RGBA(0, 0, 0, 0)
+        BorderStyle: =BorderStyle.None
+        BorderThickness: =2
+        DisabledFill: =RGBA(166, 166, 166, 1)
+        Fill: =RGBA(47,61,75,1)
+        FocusedBorderThickness: =4
+        Height: =1136
+        HoverFill: =RGBA(105, 121, 126, 1)
+        PressedFill: =RGBA(105, 121, 126, 1)
+        Width: =640
+        ZIndex: =1
+
+    TextBox1 As label:
+        Align: =Center
+        BorderColor: =RGBA(0, 0, 0, 0)
+        BorderStyle: =BorderStyle.None
+        BorderThickness: =2
+        Color: =RGBA(255, 255, 255, 1)
+        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        FocusedBorderThickness: =4
+        Font: =Font.'Lato Black'
+        Height: =255
+        HoverBorderColor: =TextBox1.BorderColor
+        HoverColor: =TextBox1.Color
+        HoverFill: =TextBox1.Fill
+        LineHeight: =0.9
+        PressedBorderColor: =TextBox1.BorderColor
+        PressedColor: =TextBox1.Color
+        PressedFill: =TextBox1.Fill
+        Size: =60
+        Text: ="WH Inventory"
+        Width: =409
+        X: =115.5
+        Y: =348
+        ZIndex: =2
+
+    Image1 As image:
+        ApplyEXIFOrientation: =false
+        BorderColor: =RGBA(141, 198, 63, 1)
+        BorderStyle: =BorderStyle.None
+        BorderThickness: =2
+        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+        DisabledFill: =RGBA(0, 0, 0, 0)
+        FocusedBorderThickness: =4
+        Height: =127.09064184223416
+        HoverBorderColor: =RGBA(0, 0, 0, 0)
+        HoverFill: =RGBA(0, 0, 0, 0)
+        Image: ='logo@3x'
+        PressedBorderColor: =RGBA(0, 0, 0, 0)
+        PressedFill: =RGBA(0, 0, 0, 0)
+        Width: =161.31343283582083
+        X: =239.3432835820895
+        Y: =209.66666666666657
+        ZIndex: =3
+
+    MainSearchText As text:
+        Align: =Left
+        BorderColor: =RGBA(255, 255, 255, .3)
+        BorderThickness: =3
+        Color: =RGBA(255, 255, 255, 1)
+        Default: =""
+        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        DisabledFill: =RGBA(244, 244, 244, 1)
+        Fill: =RGBA(0, 0, 0, 0)
+        FocusedBorderThickness: =4
+        Font: =Font.Lato
+        Height: =97
+        HintText: ="Search for an item"
+        HoverBorderColor: =MainSearchText.BorderColor
+        HoverColor: =Color.White
+        HoverFill: =ColorFade(RGBA(190, 202, 226, 0), 30%)
+        OnChange: |-
+            =ClearCollect(SearchRecord, MainSearchText.Text);
+            Navigate(StoreInventoryScreen,ScreenTransition.Fade)
+        PaddingLeft: =47
+        PaddingRight: =40
+        PaddingTop: =3
+        PressedBorderColor: =RGBA(105, 121, 126, 1)
+        PressedColor: =RGBA(51, 51, 51, 1)
+        PressedFill: =RGBA(255, 255, 255, 1)
+        RadiusBottomLeft: =80
+        RadiusBottomRight: =80
+        RadiusTopLeft: =80
+        RadiusTopRight: =80
+        Reset: =If(IsBlank(ProductSearchBox.Text),true,false)
+        Size: =27
+        Width: =542.0895522388059
+        X: =48.95522388059703
+        Y: =625.1044776119397
+        ZIndex: =4
+
+    Button1 As button:
+        BorderColor: =RGBA(0, 0, 0, 0)
+        BorderThickness: =0
+        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        DisabledFill: =RGBA(244, 244, 244, 1)
+        DisplayMode: =If(false,DisplayMode.Disabled,DisplayMode.Edit)
+        Fill: =RGBA(40,141,196,1)
+        FocusedBorderColor: =ColorFade(Self.Fill, -75%)
+        Font: =Font.Lato
+        FontWeight: =Normal
+        Height: =97
+        HoverBorderColor: =RGBA(0, 0, 0, 0)
+        HoverColor: =RGBA(255, 255, 255, 1)
+        HoverFill: =ColorFade(RGBA(105, 121, 126, 1), -10%)
+        OnSelect: |-
+            =Clear(SearchRecord);
+            Navigate(StoreInventoryScreen,ScreenTransition.Fade)
+        PressedBorderColor: =Button1.BorderColor
+        PressedColor: =Button1.Color
+        PressedFill: =Button1.Fill
+        RadiusBottomLeft: =80
+        RadiusBottomRight: =80
+        RadiusTopLeft: =80
+        RadiusTopRight: =80
+        Size: =30
+        Text: ="View all items"
+        Width: =542
+        X: =49
+        Y: =983.0447761194027
+        ZIndex: =5
+
+    icon1 As icon.Search:
+        BorderColor: =RGBA(166, 166, 166, 1)
+        Color: =RGBA(255, 255, 255, 1)
+        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+        DisabledColor: =RGBA(220, 220, 220, 1)
+        DisabledFill: =RGBA(0, 0, 0, 0)
+        FocusedBorderThickness: =4
+        Height: =44
+        HoverBorderColor: =RGBA(0, 0, 0, 0)
+        HoverColor: =ColorFade(RGBA(105, 121, 126, 1), -30%)
+        HoverFill: =RGBA(0, 0, 0, 0)
+        Icon: =Icon.Search
+        OnSelect: |-
+            =ClearCollect(SearchRecord, MainSearchText.Text);
+            Navigate(StoreInventoryScreen,ScreenTransition.Fade)
+        PressedBorderColor: =RGBA(0, 0, 0, 0)
+        PressedColor: =ColorFade(RGBA(105, 121, 126, 1), -30%)
+        PressedFill: =RGBA(0, 0, 0, 0)
+        TabIndex: =0
+        Width: =45
+        X: =517
+        Y: =651.60447761194
+        ZIndex: =6
+
+    Image5 As image:
+        BorderColor: =RGBA(0, 0, 0, 0)
+        BorderStyle: =BorderStyle.None
+        BorderThickness: =2
+        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+        DisabledFill: =RGBA(0, 0, 0, 0)
+        FocusedBorderThickness: =4
+        Height: =155
+        HoverBorderColor: =RGBA(0, 0, 0, 0)
+        HoverFill: =RGBA(0, 0, 0, 0)
+        Image: ='logo@3x'
+        PressedBorderColor: =RGBA(0, 0, 0, 0)
+        PressedFill: =RGBA(0, 0, 0, 0)
+        Width: =218
+        X: =210
+        Y: =181
+        ZIndex: =7
+

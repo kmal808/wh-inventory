@@ -1,0 +1,1050 @@
+StoreInventoryScreen As screen:
+    Height: =Max(App.Height, App.DesignHeight)
+    LoadingSpinnerColor: =RGBA(105, 121, 126, 1)
+    OnVisible: |-
+        =If(First(SearchRecord).Value=MainSearchText.Text,UpdateContext({searchgroup:true});UpdateContext({storeinventorygroup:false}),UpdateContext({searchgroup:false});UpdateContext({storeinventorygroup:true})); ClearCollect(StockView,"List");ClearCollect(StoreInventory,"All")
+    Width: =Max(App.Width, App.DesignWidth)
+
+    Group1 As group:
+        Height: =87
+        Width: =89.16417910447751
+        X: =110
+        Y: =129
+        ZIndex: =1
+
+        Rectangle3_1 As rectangle:
+            BorderColor: =RGBA(0, 0, 0, 0)
+            BorderStyle: =BorderStyle.None
+            DisabledFill: =RGBA(166, 166, 166, 1)
+            Fill: =RGBA(255, 255, 255, 1)
+            FocusedBorderThickness: =4
+            Height: =87
+            HoverFill: =RGBA(105, 121, 126, 1)
+            OnSelect: =ClearCollect(StoreInventory,"All")
+            PressedFill: =RGBA(105, 121, 126, 1)
+            TabIndex: =0
+            Visible: =First(StoreInventory).Value="All"
+            Width: =89.16417910447751
+            X: =110
+            Y: =129
+            ZIndex: =7
+
+        TextBox1_13 As label:
+            Align: =Left
+            BorderColor: =RGBA(0, 0, 0, 0)
+            BorderStyle: =BorderStyle.None
+            BorderThickness: =2
+            Color: =If(First(StoreInventory).Value="All",RGBA(40, 141, 196, 1),RGBA(47,47,47,1))
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            FocusedBorderThickness: =4
+            Font: =Font.Lato
+            FontWeight: =Normal
+            Height: =57
+            HoverBorderColor: =TextBox1_13.BorderColor
+            HoverColor: =TextBox1_13.Color
+            HoverFill: =TextBox1_13.Fill
+            OnSelect: =ClearCollect(StoreInventory,"All")
+            PressedBorderColor: =TextBox1_13.BorderColor
+            PressedColor: =TextBox1_13.Color
+            PressedFill: =TextBox1_13.Fill
+            Size: =25
+            Text: ="All"
+            Width: =65.402985074627
+            X: =126.597014925373
+            Y: =143.55223880597015
+            ZIndex: =8
+
+    Group2 As group:
+        Height: =87
+        Width: =240.95522388059703
+        X: =200
+        Y: =129
+        ZIndex: =2
+
+        Rectangle3 As rectangle:
+            BorderColor: =RGBA(0, 0, 0, 0)
+            BorderStyle: =BorderStyle.None
+            DisabledFill: =RGBA(166, 166, 166, 1)
+            Fill: =RGBA(255, 255, 255, 1)
+            FocusedBorderThickness: =4
+            Height: =87
+            HoverFill: =RGBA(105, 121, 126, 1)
+            OnSelect: =ClearCollect(StoreInventory,"Stock")
+            PressedFill: =RGBA(105, 121, 126, 1)
+            TabIndex: =0
+            Visible: =First(StoreInventory).Value="Stock"
+            Width: =240.955223880597
+            X: =200
+            Y: =129
+            ZIndex: =9
+
+        TextBox1_15 As label:
+            Align: =Left
+            BorderColor: =RGBA(0, 0, 0, 0)
+            BorderStyle: =BorderStyle.None
+            BorderThickness: =2
+            Color: =RGBA(153, 153, 153, 1)
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            FocusedBorderThickness: =4
+            Font: =Font.Lato
+            FontWeight: =Normal
+            Height: =57
+            HoverBorderColor: =TextBox1_15.BorderColor
+            HoverColor: =TextBox1_15.Color
+            HoverFill: =TextBox1_15.Fill
+            OnSelect: =ClearCollect(StoreInventory,"Stock")
+            PressedBorderColor: =TextBox1_15.BorderColor
+            PressedColor: =TextBox1_15.Color
+            PressedFill: =TextBox1_15.Fill
+            Text: ="(low-high)"
+            Width: =115.850746268656
+            X: =317.641791044777
+            Y: =146.53731343283584
+            ZIndex: =10
+
+        TextBox1_14 As label:
+            Align: =Left
+            BorderColor: =RGBA(0, 0, 0, 0)
+            BorderStyle: =BorderStyle.None
+            BorderThickness: =2
+            Color: =If(First(StoreInventory).Value="Stock",RGBA(40, 141, 196, 1),RGBA(47,47,47,1))
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            FocusedBorderThickness: =4
+            Font: =Font.Lato
+            FontWeight: =Semibold
+            Height: =55.955223880597
+            HoverBorderColor: =TextBox1_14.BorderColor
+            HoverColor: =TextBox1_14.Color
+            HoverFill: =TextBox1_14.Fill
+            OnSelect: =ClearCollect(StoreInventory,"Stock")
+            PressedBorderColor: =TextBox1_14.BorderColor
+            PressedColor: =TextBox1_14.Color
+            PressedFill: =TextBox1_14.Fill
+            Size: =25
+            Text: ="Stock"
+            Width: =113.38805970149201
+            X: =223.611940298508
+            Y: =145.0447761194029
+            ZIndex: =11
+
+    Rectangle2_4 As rectangle:
+        BorderColor: =RGBA(0, 0, 0, 0)
+        BorderStyle: =BorderStyle.None
+        DisabledFill: =RGBA(166, 166, 166, 1)
+        Fill: =RGBA(47,61,75,1)
+        FocusedBorderThickness: =4
+        Height: =129
+        HoverFill: =RGBA(105, 121, 126, 1)
+        PressedFill: =RGBA(105, 121, 126, 1)
+        TabIndex: =0
+        Width: =640
+        ZIndex: =3
+
+    Rectangle2_5 As rectangle:
+        BorderColor: =RGBA(0, 0, 0, 0)
+        BorderStyle: =BorderStyle.None
+        DisabledFill: =RGBA(166, 166, 166, 1)
+        Fill: =RGBA(240,240,240,1)
+        FocusedBorderThickness: =4
+        Height: =87
+        HoverFill: =RGBA(105, 121, 126, 1)
+        PressedFill: =RGBA(105, 121, 126, 1)
+        TabIndex: =0
+        Width: =640
+        Y: =129
+        ZIndex: =4
+
+    TextBox1_12 As label:
+        Align: =Left
+        BorderColor: =RGBA(0, 0, 0, 0)
+        BorderStyle: =BorderStyle.None
+        BorderThickness: =2
+        Color: =RGBA(128, 128, 128, 1)
+        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        FocusedBorderThickness: =4
+        Font: =Font.Lato
+        FontWeight: =Normal
+        Height: =57
+        HoverBorderColor: =TextBox1_12.BorderColor
+        HoverColor: =TextBox1_12.Color
+        HoverFill: =TextBox1_12.Fill
+        PressedBorderColor: =TextBox1_12.BorderColor
+        PressedColor: =TextBox1_12.Color
+        PressedFill: =TextBox1_12.Fill
+        Size: =16
+        Text: ="Sort by"
+        Width: =84
+        X: =18
+        Y: =145.0447761194029
+        ZIndex: =5
+
+    GridGallery As gallery.galleryVertical:
+        BorderColor: =RGBA(166, 166, 166, 1)
+        DisabledBorderColor: =GridGallery.BorderColor
+        DisabledFill: =GridGallery.Fill
+        Height: =920
+        HoverBorderColor: =GridGallery.BorderColor
+        HoverFill: =GridGallery.Fill
+        Items: =If(First(StoreInventory).Value="All",Filter(Products,ProductSearchBox.Text in ProductName),If(First(StoreInventory).Value="Stock",  Sort(Filter(Products,ProductSearchBox.Text in ProductName&&DefaultSellingQuantity>0), If((DefaultSellingQuantity)/Value(Stock)*100>70,"a", (DefaultSellingQuantity)/Value(Stock)*100>=31&&(DefaultSellingQuantity)/Value(Stock)*100<=70,"b",(DefaultSellingQuantity)/Value(Stock)*100>=1&&(DefaultSellingQuantity)/Value(Stock)*100<=30,"c", DefaultSellingQuantity=0, "d"), Descending)))
+        Layout: =Layout.Vertical
+        PressedBorderColor: =GridGallery.BorderColor
+        PressedFill: =GridGallery.Fill
+        TemplatePadding: =12
+        TemplateSize: =235.223880597015
+        Visible: =First(StockView).Value="Grid"
+        WrapCount: =2
+        Y: =216
+        ZIndex: =6
+
+        Group5 As group:
+            Height: =230.7282704126425
+            Width: =302
+            X: =0
+            Y: =0
+            ZIndex: =1
+
+            Image3_1 As image:
+                ApplyEXIFOrientation: =false
+                BorderColor: =RGBA(0, 0, 0, 0)
+                BorderStyle: =BorderStyle.None
+                BorderThickness: =2
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledFill: =RGBA(0, 0, 0, 0)
+                FocusedBorderThickness: =4
+                Height: =165
+                HoverBorderColor: =RGBA(0, 0, 0, 0)
+                HoverFill: =RGBA(0, 0, 0, 0)
+                Image: ='Property Image'
+                OnSelect: =ClearCollect(productrecord,ThisItem);Navigate(ProductDetailsScreen,ScreenTransition.Fade)
+                PressedBorderColor: =RGBA(0, 0, 0, 0)
+                PressedFill: =RGBA(0, 0, 0, 0)
+                Width: =302
+                ZIndex: =4
+
+            TextBox1_16 As label:
+                Align: =Left
+                BorderColor: =RGBA(0, 0, 0, 0)
+                BorderStyle: =BorderStyle.None
+                BorderThickness: =2
+                Color: =RGBA(47, 47, 47, 1)
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                FocusedBorderThickness: =4
+                Font: =Font.Lato
+                FontWeight: =Normal
+                Height: =57
+                HoverBorderColor: =TextBox1_16.BorderColor
+                HoverColor: =TextBox1_16.Color
+                HoverFill: =TextBox1_16.Fill
+                OnSelect: =ClearCollect(productrecord,ThisItem);Navigate(ProductDetailsScreen,ScreenTransition.Fade)
+                PressedBorderColor: =TextBox1_16.BorderColor
+                PressedColor: =TextBox1_16.Color
+                PressedFill: =TextBox1_16.Fill
+                Size: =20
+                Text: =ThisItem.ProductName
+                Width: =188
+                Wrap: =false
+                X: =11
+                Y: =171.29455662862153
+                ZIndex: =5
+
+            TextBox1_17 As label:
+                Align: =Right
+                BorderColor: =RGBA(0, 0, 0, 0)
+                BorderStyle: =BorderStyle.None
+                BorderThickness: =2
+                Color: =RGBA(40, 141, 196, 1)
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                FocusedBorderThickness: =4
+                Font: =Font.Lato
+                FontWeight: =Semibold
+                Height: =59.72827041264247
+                HoverBorderColor: =TextBox1_17.BorderColor
+                HoverColor: =TextBox1_17.Color
+                HoverFill: =TextBox1_17.Fill
+                OnSelect: =ClearCollect(productrecord,ThisItem);Navigate(ProductDetailsScreen,ScreenTransition.Fade)
+                PressedBorderColor: =TextBox1_17.BorderColor
+                PressedColor: =TextBox1_17.Color
+                PressedFill: =TextBox1_17.Fill
+                Size: =30
+                Text: =ThisItem.DefaultSellingQuantity
+                Width: =139
+                Wrap: =false
+                X: =163
+                Y: =171
+                ZIndex: =6
+
+            Rectangle2_6 As rectangle:
+                BorderColor: =RGBA(0, 0, 0, 0)
+                BorderStyle: =BorderStyle.None
+                DisabledFill: =RGBA(166, 166, 166, 1)
+                Fill: =RGBA(220,55,57,1)
+                FocusedBorderThickness: =4
+                Height: =40.02985074626862
+                HoverFill: =RGBA(105, 121, 126, 1)
+                OnSelect: =ClearCollect(productrecord,ThisItem);Navigate(ProductDetailsScreen,ScreenTransition.Fade)
+                PressedFill: =RGBA(105, 121, 126, 1)
+                TabIndex: =0
+                Visible: =If((ThisItem.DefaultSellingQuantity)/Value(LookUp(ProductCollect,ProductNumber=ThisItem.ProductNumber,Stock))*100=0,true,false)
+                Width: =144
+                Y: =13.402985074626801
+                ZIndex: =7
+
+            TextBox1_18 As label:
+                Align: =Center
+                BorderColor: =RGBA(0, 0, 0, 0)
+                BorderStyle: =BorderStyle.None
+                BorderThickness: =2
+                Color: =RGBA(255, 255, 255, 1)
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                FocusedBorderThickness: =4
+                Font: =Font.Lato
+                FontWeight: =Semibold
+                HoverBorderColor: =TextBox1_18.BorderColor
+                HoverColor: =TextBox1_18.Color
+                HoverFill: =TextBox1_18.Fill
+                OnSelect: =ClearCollect(productrecord,ThisItem);Navigate(ProductDetailsScreen,ScreenTransition.Fade)
+                PressedBorderColor: =TextBox1_18.BorderColor
+                PressedColor: =TextBox1_18.Color
+                PressedFill: =TextBox1_18.Fill
+                Size: =16
+                Text: ="Out of stock"
+                Visible: =If((ThisItem.DefaultSellingQuantity)/Value(LookUp(ProductCollect,ProductNumber=ThisItem.ProductNumber,Stock))*100=0,true,false)
+                Width: =144
+                Y: =15
+                ZIndex: =8
+
+        Rectangle4 As rectangle:
+            BorderColor: =RGBA(230,230,230,1)
+            BorderStyle: =Solid
+            BorderThickness: =3
+            DisabledFill: =RGBA(166, 166, 166, 1)
+            Fill: =RGBA(0, 0, 0, 0)
+            FocusedBorderThickness: =4
+            Height: =235.223880597015
+            HoverFill: =RGBA(105, 121, 126, 1)
+            PressedFill: =RGBA(105, 121, 126, 1)
+            TabIndex: =0
+            Width: =302
+            ZIndex: =2
+
+        Rectangle2_7 As rectangle:
+            BorderColor: =RGBA(0, 0, 0, 0)
+            BorderStyle: =BorderStyle.None
+            DisabledFill: =RGBA(166, 166, 166, 1)
+            Fill: =RGBA(230, 230, 230, 1)
+            FocusedBorderThickness: =4
+            Height: =2
+            HoverFill: =RGBA(105, 121, 126, 1)
+            PressedFill: =RGBA(105, 121, 126, 1)
+            TabIndex: =0
+            Width: =302
+            Y: =165
+            ZIndex: =3
+
+        Rectangle2_31 As rectangle:
+            BorderColor: =RGBA(0, 0, 0, 0)
+            BorderStyle: =BorderStyle.None
+            DisabledFill: =RGBA(166, 166, 166, 1)
+            Fill: =RGBA(99, 139, 44, 1)
+            FocusedBorderThickness: =4
+            Height: =40.0298507462686
+            HoverFill: =RGBA(105, 121, 126, 1)
+            OnSelect: =Navigate(ProductDetailsScreen,ScreenTransition.Fade)
+            PressedFill: =RGBA(105, 121, 126, 1)
+            TabIndex: =0
+            Visible: =If((ThisItem.DefaultSellingQuantity)/Value(LookUp(ProductCollect,ProductNumber=ThisItem.ProductNumber,Stock))*100>70,true,false)
+            Width: =146.806753133831
+            X: =2
+            Y: =11
+            ZIndex: =9
+
+        GoodText_2 As label:
+            Align: =Center
+            BorderColor: =RGBA(0, 0, 0, 0)
+            BorderStyle: =BorderStyle.None
+            BorderThickness: =2
+            Color: =RGBA(255, 255, 255, 1)
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            FocusedBorderThickness: =4
+            Font: =Font.Lato
+            FontWeight: =Semibold
+            HoverBorderColor: =GoodText_2.BorderColor
+            HoverColor: =GoodText_2.Color
+            HoverFill: =GoodText_2.Fill
+            OnSelect: =Navigate(ProductDetailsScreen,ScreenTransition.Fade)
+            PressedBorderColor: =GoodText_2.BorderColor
+            PressedColor: =GoodText_2.Color
+            PressedFill: =GoodText_2.Fill
+            Size: =16
+            Text: ="Good"
+            Visible: =If((ThisItem.DefaultSellingQuantity)/Value(LookUp(ProductCollect,ProductNumber=ThisItem.ProductNumber,Stock))*100>70,true,false)
+            Width: =140.689805086588
+            X: =6
+            Y: =13
+            ZIndex: =10
+
+        Rectangle2_32 As rectangle:
+            BorderColor: =RGBA(0, 0, 0, 0)
+            BorderStyle: =BorderStyle.None
+            DisabledFill: =RGBA(166, 166, 166, 1)
+            Fill: =RGBA(134, 133, 134, 1)
+            FocusedBorderThickness: =4
+            Height: =40.0298507462686
+            HoverFill: =RGBA(105, 121, 126, 1)
+            OnSelect: =Navigate(ProductDetailsScreen,ScreenTransition.Fade)
+            PressedFill: =RGBA(105, 121, 126, 1)
+            TabIndex: =0
+            Visible: =If((ThisItem.DefaultSellingQuantity)/Value(LookUp(ProductCollect,ProductNumber=ThisItem.ProductNumber,Stock))*100>=31&&(ThisItem.DefaultSellingQuantity)/Value(LookUp(ProductCollect,ProductNumber=ThisItem.ProductNumber,Stock))*100<=70,true,false)
+            Width: =146.806753133831
+            Y: =11
+            ZIndex: =11
+
+        AverageText_2 As label:
+            Align: =Center
+            BorderColor: =RGBA(0, 0, 0, 0)
+            BorderStyle: =BorderStyle.None
+            BorderThickness: =2
+            Color: =RGBA(255, 255, 255, 1)
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            FocusedBorderThickness: =4
+            Font: =Font.Lato
+            FontWeight: =Semibold
+            HoverBorderColor: =AverageText_2.BorderColor
+            HoverColor: =AverageText_2.Color
+            HoverFill: =AverageText_2.Fill
+            OnSelect: =Navigate(ProductDetailsScreen,ScreenTransition.Fade)
+            PressedBorderColor: =AverageText_2.BorderColor
+            PressedColor: =AverageText_2.Color
+            PressedFill: =AverageText_2.Fill
+            Size: =16
+            Text: ="Average"
+            Visible: =If((ThisItem.DefaultSellingQuantity)/Value(LookUp(ProductCollect,ProductNumber=ThisItem.ProductNumber,Stock))*100>=31&&(ThisItem.DefaultSellingQuantity)/Value(LookUp(ProductCollect,ProductNumber=ThisItem.ProductNumber,Stock))*100<=70,true,false)
+            Width: =140.689805086588
+            X: =2
+            Y: =11
+            ZIndex: =12
+
+        Rectangle2_26 As rectangle:
+            BorderColor: =RGBA(0, 0, 0, 0)
+            BorderStyle: =BorderStyle.None
+            DisabledFill: =RGBA(166, 166, 166, 1)
+            Fill: =RGBA(220,55,57,1)
+            FocusedBorderThickness: =4
+            Height: =40.0298507462686
+            HoverFill: =RGBA(105, 121, 126, 1)
+            OnSelect: =Navigate(ProductDetailsScreen,ScreenTransition.Fade)
+            PressedFill: =RGBA(105, 121, 126, 1)
+            TabIndex: =0
+            Visible: =If((ThisItem.DefaultSellingQuantity)/Value(LookUp(ProductCollect,ProductNumber=ThisItem.ProductNumber,Stock))*100>=1&&(ThisItem.DefaultSellingQuantity)/Value(LookUp(ProductCollect,ProductNumber=ThisItem.ProductNumber,Stock))*100<=30,true,false)
+            Width: =146.806753133831
+            Y: =11
+            ZIndex: =13
+
+        LowText_2 As label:
+            Align: =Center
+            BorderColor: =RGBA(0, 0, 0, 0)
+            BorderStyle: =BorderStyle.None
+            BorderThickness: =2
+            Color: =RGBA(255, 255, 255, 1)
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            FocusedBorderThickness: =4
+            Font: =Font.Lato
+            FontWeight: =Semibold
+            HoverBorderColor: =LowText_2.BorderColor
+            HoverColor: =LowText_2.Color
+            HoverFill: =LowText_2.Fill
+            OnSelect: =Navigate(ProductDetailsScreen,ScreenTransition.Fade)
+            PressedBorderColor: =LowText_2.BorderColor
+            PressedColor: =LowText_2.Color
+            PressedFill: =LowText_2.Fill
+            Size: =16
+            Text: ="Low"
+            Visible: =If((ThisItem.DefaultSellingQuantity)/Value(LookUp(ProductCollect,ProductNumber=ThisItem.ProductNumber,Stock))*100>=1&&(ThisItem.DefaultSellingQuantity)/Value(LookUp(ProductCollect,ProductNumber=ThisItem.ProductNumber,Stock))*100<=30,true,false)
+            Width: =140.689805086588
+            X: =6
+            Y: =13
+            ZIndex: =14
+
+    GridViewIcon As image:
+        ApplyEXIFOrientation: =false
+        BorderColor: =RGBA(0, 0, 0, 0)
+        BorderStyle: =BorderStyle.None
+        BorderThickness: =2
+        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+        DisabledFill: =RGBA(0, 0, 0, 0)
+        FocusedBorderThickness: =4
+        Height: =35.5925925925926
+        HoverBorderColor: =RGBA(0, 0, 0, 0)
+        HoverFill: =RGBA(0, 0, 0, 0)
+        Image: ='thumbnail@3x'
+        PressedBorderColor: =RGBA(0, 0, 0, 0)
+        PressedFill: =RGBA(0, 0, 0, 0)
+        Visible: =First(StockView).Value="Grid"
+        Width: =35.5925925925926
+        X: =570.6543209876565
+        Y: =154
+        ZIndex: =12
+
+    Image2_2 As image:
+        ApplyEXIFOrientation: =false
+        BorderColor: =RGBA(0, 0, 0, 0)
+        BorderStyle: =BorderStyle.None
+        BorderThickness: =2
+        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+        DisabledFill: =RGBA(0, 0, 0, 0)
+        FocusedBorderThickness: =4
+        Height: =35.5925925925926
+        HoverBorderColor: =RGBA(0, 0, 0, 0)
+        HoverFill: =RGBA(0, 0, 0, 0)
+        Image: ='tumbnailSelected@3x'
+        OnSelect: |-
+            =ClearCollect(StockView,"Grid");UpdateContext({stockgridview2:false});UpdateContext({stocklistview2:true});UpdateContext({stockgridview:true})
+        PressedBorderColor: =RGBA(0, 0, 0, 0)
+        PressedFill: =RGBA(0, 0, 0, 0)
+        Visible: =First(StockView).Value="List"
+        Width: =35.5925925925926
+        X: =570.6543209876565
+        Y: =154
+        ZIndex: =15
+
+    ListGallery As gallery.galleryVertical:
+        BorderColor: =RGBA(166, 166, 166, 1)
+        DisabledBorderColor: =ListGallery.BorderColor
+        DisabledFill: =ListGallery.Fill
+        Height: =920
+        HoverBorderColor: =ListGallery.BorderColor
+        HoverFill: =ListGallery.Fill
+        Items: |-
+            =If(
+                First(StoreInventory).Value = "All",
+                Filter(
+                    Products,
+                    ProductSearchBox.Text in ProductName
+                ),
+                If(
+                    First(StoreInventory).Value = "Stock",
+                    Sort(
+                        Filter(
+                            Products,
+                            ProductSearchBox.Text in ProductName && DefaultSellingQuantity > 0
+                        ),
+                        If(
+                            DefaultSellingQuantity / Value(Stock) * 100 > 70,
+                            "a",
+                            DefaultSellingQuantity / Value(Stock) * 100 >= 31 && DefaultSellingQuantity / Value(Stock) * 100 <= 70,
+                            "b",
+                            DefaultSellingQuantity / Value(Stock) * 100 >= 1 && DefaultSellingQuantity / Value(Stock) * 100 <= 30,
+                            "c",
+                            DefaultSellingQuantity = 0,
+                            "d"
+                        ),
+                        Descending
+                    )
+                )
+            )
+        Layout: =Layout.Vertical
+        PressedBorderColor: =ListGallery.BorderColor
+        PressedFill: =ListGallery.Fill
+        ShowScrollbar: =false
+        TemplatePadding: =0
+        TemplateSize: =135.223880597015
+        Visible: =First(StockView).Value="List"
+        Y: =216
+        ZIndex: =16
+
+        Group4 As group:
+            Height: =135
+            Width: =621.806753133831
+            X: =0
+            Y: =0
+            ZIndex: =1
+
+            Image3_3 As image:
+                ApplyEXIFOrientation: =false
+                BorderColor: =RGBA(0, 0, 0, 0)
+                BorderStyle: =BorderStyle.None
+                BorderThickness: =2
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledFill: =RGBA(0, 0, 0, 0)
+                FocusedBorderThickness: =4
+                Height: =135
+                HoverBorderColor: =RGBA(0, 0, 0, 0)
+                HoverFill: =RGBA(0, 0, 0, 0)
+                Image: ='Property Image'
+                OnSelect: =ClearCollect(productrecord,ThisItem);Navigate(ProductDetailsScreen,ScreenTransition.Fade)
+                PressedBorderColor: =RGBA(0, 0, 0, 0)
+                PressedFill: =RGBA(0, 0, 0, 0)
+                Width: =136.159338217373
+                ZIndex: =4
+
+            TextBox1_40 As label:
+                Align: =Left
+                BorderColor: =RGBA(0, 0, 0, 0)
+                BorderStyle: =BorderStyle.None
+                BorderThickness: =2
+                Color: =RGBA(47, 47, 47, 1)
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                FocusedBorderThickness: =4
+                Font: =Font.Lato
+                FontWeight: =Normal
+                Height: =57
+                HoverBorderColor: =TextBox1_40.BorderColor
+                HoverColor: =TextBox1_40.Color
+                HoverFill: =TextBox1_40.Fill
+                OnSelect: =ClearCollect(productrecord,ThisItem);Navigate(ProductDetailsScreen,ScreenTransition.Fade)
+                PressedBorderColor: =TextBox1_40.BorderColor
+                PressedColor: =TextBox1_40.Color
+                PressedFill: =TextBox1_40.Fill
+                Size: =23
+                Text: =ThisItem.ProductName
+                Width: =474.063473661329
+                Wrap: =false
+                X: =146.806753133831
+                Y: =10.4925373134328
+                ZIndex: =5
+
+            TextBox1_41 As label:
+                Align: =Left
+                BorderColor: =RGBA(0, 0, 0, 0)
+                BorderStyle: =BorderStyle.None
+                BorderThickness: =2
+                Color: =RGBA(40, 141, 196, 1)
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                FocusedBorderThickness: =4
+                Font: =Font.Lato
+                FontWeight: =Semibold
+                Height: =61.5223880597015
+                HoverBorderColor: =TextBox1_41.BorderColor
+                HoverColor: =TextBox1_41.Color
+                HoverFill: =TextBox1_41.Fill
+                OnSelect: =ClearCollect(productrecord,ThisItem);Navigate(ProductDetailsScreen,ScreenTransition.Fade)
+                PressedBorderColor: =TextBox1_41.BorderColor
+                PressedColor: =TextBox1_41.Color
+                PressedFill: =TextBox1_41.Fill
+                Size: =30
+                Text: =ThisItem.DefaultSellingQuantity
+                Width: =134.572857039345
+                X: =146.806753133831
+                Y: =62.4626865671642
+                ZIndex: =6
+
+            Rectangle2_15 As rectangle:
+                BorderColor: =RGBA(0, 0, 0, 0)
+                BorderStyle: =BorderStyle.None
+                DisabledFill: =RGBA(166, 166, 166, 1)
+                Fill: =RGBA(220,55,57,1)
+                FocusedBorderThickness: =4
+                Height: =40.0298507462686
+                HoverFill: =RGBA(105, 121, 126, 1)
+                OnSelect: =ClearCollect(productrecord,ThisItem);Navigate(ProductDetailsScreen,ScreenTransition.Fade)
+                PressedFill: =RGBA(105, 121, 126, 1)
+                TabIndex: =0
+                Visible: =If(ThisItem.DefaultSellingQuantity=0,true,false)
+                Width: =146.806753133831
+                X: =475
+                Y: =70
+                ZIndex: =7
+
+            outofstock As label:
+                Align: =Center
+                BorderColor: =RGBA(0, 0, 0, 0)
+                BorderStyle: =BorderStyle.None
+                BorderThickness: =2
+                Color: =RGBA(255, 255, 255, 1)
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                FocusedBorderThickness: =4
+                Font: =Font.Lato
+                FontWeight: =Semibold
+                HoverBorderColor: =outofstock.BorderColor
+                HoverColor: =outofstock.Color
+                HoverFill: =outofstock.Fill
+                OnSelect: =ClearCollect(productrecord,ThisItem);Navigate(ProductDetailsScreen,ScreenTransition.Fade)
+                PressedBorderColor: =outofstock.BorderColor
+                PressedColor: =outofstock.Color
+                PressedFill: =outofstock.Fill
+                Size: =16
+                Text: ="Out of stock"
+                Visible: =If(ThisItem.DefaultSellingQuantity=0,true,false)
+                Width: =140.689805086588
+                X: =475
+                Y: =69
+                ZIndex: =8
+
+        PercentageText As label:
+            BorderColor: =RGBA(0, 0, 0, 0)
+            BorderStyle: =BorderStyle.None
+            BorderThickness: =2
+            Color: =RGBA(51, 51, 51, 1)
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            FocusedBorderThickness: =4
+            Font: =Font.'Segoe UI'
+            Height: =70
+            HoverBorderColor: =PercentageText.BorderColor
+            HoverColor: =PercentageText.Color
+            HoverFill: =PercentageText.Fill
+            PressedBorderColor: =PercentageText.BorderColor
+            PressedColor: =PercentageText.Color
+            PressedFill: =PercentageText.Fill
+            Size: =21
+            Text: =(ThisItem.DefaultSellingQuantity)/Value(LookUp(ProductCollect,ProductNumber=ThisItem.ProductNumber,Stock))*100
+            Visible: =false
+            Width: =560
+            X: =40
+            Y: =40
+            ZIndex: =2
+
+        Rectangle2_14 As rectangle:
+            BorderColor: =RGBA(0, 0, 0, 0)
+            BorderStyle: =BorderStyle.None
+            DisabledFill: =RGBA(166, 166, 166, 1)
+            Fill: =RGBA(230, 230, 230, 1)
+            FocusedBorderThickness: =4
+            Height: =2
+            HoverFill: =RGBA(105, 121, 126, 1)
+            PressedFill: =RGBA(105, 121, 126, 1)
+            TabIndex: =0
+            Width: =640
+            Y: =133
+            ZIndex: =3
+
+        Rectangle2_24 As rectangle:
+            BorderColor: =RGBA(0, 0, 0, 0)
+            BorderStyle: =BorderStyle.None
+            DisabledFill: =RGBA(166, 166, 166, 1)
+            Fill: =RGBA(220,55,57,1)
+            FocusedBorderThickness: =4
+            Height: =40.0298507462686
+            HoverFill: =RGBA(105, 121, 126, 1)
+            OnSelect: =Navigate(ProductDetailsScreen,ScreenTransition.Fade)
+            PressedFill: =RGBA(105, 121, 126, 1)
+            TabIndex: =0
+            Visible: =If((ThisItem.DefaultSellingQuantity)/Value(LookUp(Products,ProductNumber=ThisItem.ProductNumber,Stock))*100>=1&&(ThisItem.DefaultSellingQuantity)/Value(LookUp(Products,ProductNumber=ThisItem.ProductNumber,Stock))*100<=30,true,false)
+            Width: =146.806753133831
+            X: =475
+            Y: =70
+            ZIndex: =9
+
+        LowText As label:
+            Align: =Center
+            BorderColor: =RGBA(0, 0, 0, 0)
+            BorderStyle: =BorderStyle.None
+            BorderThickness: =2
+            Color: =RGBA(255, 255, 255, 1)
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            FocusedBorderThickness: =4
+            Font: =Font.Lato
+            FontWeight: =Semibold
+            HoverBorderColor: =LowText.BorderColor
+            HoverColor: =LowText.Color
+            HoverFill: =LowText.Fill
+            OnSelect: =Navigate(ProductDetailsScreen,ScreenTransition.Fade)
+            PressedBorderColor: =LowText.BorderColor
+            PressedColor: =LowText.Color
+            PressedFill: =LowText.Fill
+            Size: =16
+            Text: ="Low"
+            Visible: =If((ThisItem.DefaultSellingQuantity)/Value(LookUp(Products,ProductNumber=ThisItem.ProductNumber,Stock))*100>=1&&(ThisItem.DefaultSellingQuantity)/Value(LookUp(Products,ProductNumber=ThisItem.ProductNumber,Stock))*100<=30,true,false)
+            Width: =140.689805086588
+            X: =475
+            Y: =71
+            ZIndex: =10
+
+        Rectangle2_27 As rectangle:
+            BorderColor: =RGBA(0, 0, 0, 0)
+            BorderStyle: =BorderStyle.None
+            DisabledFill: =RGBA(166, 166, 166, 1)
+            Fill: =RGBA(134, 133, 134, 1)
+            FocusedBorderThickness: =4
+            Height: =40.0298507462686
+            HoverFill: =RGBA(105, 121, 126, 1)
+            OnSelect: =Navigate(ProductDetailsScreen,ScreenTransition.Fade)
+            PressedFill: =RGBA(105, 121, 126, 1)
+            TabIndex: =0
+            Visible: =If((ThisItem.DefaultSellingQuantity)/Value(LookUp(Products,ProductNumber=ThisItem.ProductNumber,Stock))*100>=31&&(ThisItem.DefaultSellingQuantity)/Value(LookUp(Products,ProductNumber=ThisItem.ProductNumber,Stock))*100<=70,true,false)
+            Width: =146.806753133831
+            X: =475
+            Y: =70
+            ZIndex: =11
+
+        AverageText As label:
+            Align: =Center
+            BorderColor: =RGBA(0, 0, 0, 0)
+            BorderStyle: =BorderStyle.None
+            BorderThickness: =2
+            Color: =RGBA(255, 255, 255, 1)
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            FocusedBorderThickness: =4
+            Font: =Font.Lato
+            FontWeight: =Semibold
+            HoverBorderColor: =AverageText.BorderColor
+            HoverColor: =AverageText.Color
+            HoverFill: =AverageText.Fill
+            OnSelect: =Navigate(ProductDetailsScreen,ScreenTransition.Fade)
+            PressedBorderColor: =AverageText.BorderColor
+            PressedColor: =AverageText.Color
+            PressedFill: =AverageText.Fill
+            Size: =16
+            Text: ="Average"
+            Visible: =If((ThisItem.DefaultSellingQuantity)/Value(LookUp(Products,ProductNumber=ThisItem.ProductNumber,Stock))*100>=31&&(ThisItem.DefaultSellingQuantity)/Value(LookUp(Products,ProductNumber=ThisItem.ProductNumber,Stock))*100<=70,true,false)
+            Width: =140.689805086588
+            X: =475
+            Y: =69
+            ZIndex: =12
+
+        Rectangle2_28 As rectangle:
+            BorderColor: =RGBA(0, 0, 0, 0)
+            BorderStyle: =BorderStyle.None
+            DisabledFill: =RGBA(166, 166, 166, 1)
+            Fill: =RGBA(99, 139, 44, 1)
+            FocusedBorderThickness: =4
+            Height: =40.0298507462686
+            HoverFill: =RGBA(105, 121, 126, 1)
+            OnSelect: =Navigate(ProductDetailsScreen,ScreenTransition.Fade)
+            PressedFill: =RGBA(105, 121, 126, 1)
+            TabIndex: =0
+            Visible: =If((ThisItem.DefaultSellingQuantity)/Value(LookUp(Products,ProductNumber=ThisItem.ProductNumber,Stock))*100>70,true,false)
+            Width: =146.806753133831
+            X: =475
+            Y: =70
+            ZIndex: =13
+
+        GoodText As label:
+            Align: =Center
+            BorderColor: =RGBA(0, 0, 0, 0)
+            BorderStyle: =BorderStyle.None
+            BorderThickness: =2
+            Color: =RGBA(255, 255, 255, 1)
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            FocusedBorderThickness: =4
+            Font: =Font.Lato
+            FontWeight: =Semibold
+            HoverBorderColor: =GoodText.BorderColor
+            HoverColor: =GoodText.Color
+            HoverFill: =GoodText.Fill
+            OnSelect: =Navigate(ProductDetailsScreen,ScreenTransition.Fade)
+            PressedBorderColor: =GoodText.BorderColor
+            PressedColor: =GoodText.Color
+            PressedFill: =GoodText.Fill
+            Size: =16
+            Text: ="Good"
+            Visible: =If((ThisItem.DefaultSellingQuantity)/Value(LookUp(Products,ProductNumber=ThisItem.ProductNumber,Stock))*100>70,true,false)
+            Width: =140.689805086588
+            X: =475
+            Y: =69
+            ZIndex: =14
+
+        Rectangle5 As rectangle:
+            BorderColor: =RGBA(0, 0, 0, 0)
+            BorderStyle: =BorderStyle.None
+            BorderThickness: =2
+            DisabledFill: =RGBA(166, 166, 166, 1)
+            Fill: =RGBA(0, 0, 0, 0)
+            FocusedBorderThickness: =4
+            Height: =135.223880597015
+            HoverFill: =RGBA(105, 121, 126, 1)
+            OnSelect: =ClearCollect(productrecord,ThisItem);Navigate(ProductDetailsScreen,ScreenTransition.Fade)
+            PressedFill: =RGBA(105, 121, 126, 1)
+            TabIndex: =0
+            Width: =640
+            ZIndex: =15
+
+    Group3 As group:
+        Height: =101.77611940298509
+        Width: =490.5
+        X: =115.5
+        Y: =16.4179104477612
+        ZIndex: =17
+
+        icon1_1 As icon.Search:
+            BorderColor: =RGBA(166, 166, 166, 1)
+            Color: =RGBA(255, 255, 255, .8)
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledColor: =RGBA(220, 220, 220, 1)
+            DisabledFill: =RGBA(0, 0, 0, 0)
+            FocusedBorderThickness: =4
+            Height: =53
+            HoverBorderColor: =RGBA(0, 0, 0, 0)
+            HoverColor: =ColorFade(RGBA(105, 121, 126, 1), -30%)
+            HoverFill: =RGBA(0, 0, 0, 0)
+            Icon: =Icon.Search
+            OnSelect: |-
+                =UpdateContext({searchgroup:true});UpdateContext({storeinventorygroup:false});UpdateContext({productsearch:true});UpdateContext({productsearch:false})
+            PressedBorderColor: =RGBA(0, 0, 0, 0)
+            PressedColor: =ColorFade(RGBA(105, 121, 126, 1), -30%)
+            PressedFill: =RGBA(0, 0, 0, 0)
+            TabIndex: =0
+            Visible: =storeinventorygroup
+            Width: =53
+            X: =553
+            Y: =41
+            ZIndex: =18
+
+        TextBox1_10 As label:
+            Align: =Center
+            BorderColor: =RGBA(0, 0, 0, 0)
+            BorderStyle: =BorderStyle.None
+            BorderThickness: =2
+            Color: =RGBA(255, 255, 255, 1)
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            FocusedBorderThickness: =4
+            Font: =Font.Lato
+            FontWeight: =Normal
+            Height: =57
+            HoverBorderColor: =TextBox1_10.BorderColor
+            HoverColor: =TextBox1_10.Color
+            HoverFill: =TextBox1_10.Fill
+            PressedBorderColor: =TextBox1_10.BorderColor
+            PressedColor: =TextBox1_10.Color
+            PressedFill: =TextBox1_10.Fill
+            Size: =30
+            Text: ="WH Inventory"
+            Visible: =storeinventorygroup
+            Width: =409
+            X: =115.5
+            Y: =16.417910447761194
+            ZIndex: =19
+
+        TextBox1_11 As label:
+            Align: =Center
+            BorderColor: =RGBA(0, 0, 0, 0)
+            BorderStyle: =BorderStyle.None
+            BorderThickness: =2
+            Color: =RGBA(255, 255, 255, .6)
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            FocusedBorderThickness: =4
+            Font: =Font.Lato
+            FontWeight: =Normal
+            Height: =57
+            HoverBorderColor: =TextBox1_11.BorderColor
+            HoverColor: =TextBox1_11.Color
+            HoverFill: =TextBox1_11.Fill
+            PressedBorderColor: =TextBox1_11.BorderColor
+            PressedColor: =TextBox1_11.Color
+            PressedFill: =TextBox1_11.Fill
+            Size: =20
+            Text: =Text(Today(),"mmm dd, yyyy")
+            Visible: =storeinventorygroup
+            Width: =409
+            X: =115.5
+            Y: =61.19402985074626
+            ZIndex: =20
+
+    icon2_1 As icon.Cancel:
+        BorderColor: =RGBA(166, 166, 166, 1)
+        Color: =RGBA(255, 255, 255, 0.8)
+        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+        DisabledColor: =RGBA(220, 220, 220, 1)
+        DisabledFill: =RGBA(0, 0, 0, 0)
+        FocusedBorderThickness: =4
+        Height: =53
+        HoverBorderColor: =RGBA(0, 0, 0, 0)
+        HoverColor: =ColorFade(RGBA(105, 121, 126, 1), -30%)
+        HoverFill: =RGBA(0, 0, 0, 0)
+        Icon: =Icon.Cancel
+        OnSelect: |-
+            =Clear(SearchRecord); UpdateContext({storeinventorygroup:true});UpdateContext({searchgroup:false});UpdateContext({productsearch:true});UpdateContext({productsearch:false})
+        PressedBorderColor: =RGBA(0, 0, 0, 0)
+        PressedColor: =ColorFade(RGBA(105, 121, 126, 1), -30%)
+        PressedFill: =RGBA(0, 0, 0, 0)
+        TabIndex: =0
+        Visible: =searchgroup
+        Width: =53
+        X: =557
+        Y: =38
+        ZIndex: =22
+
+    ProductSearchBox As text:
+        Align: =Left
+        BorderColor: =RGBA(255, 255, 255, .3)
+        BorderThickness: =3
+        Color: =RGBA(255, 255, 255, 1)
+        Default: =If(!IsBlank(First(SearchRecord).Value), First(SearchRecord).Value, "")
+        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        DisabledFill: =RGBA(244, 244, 244, 1)
+        Fill: =RGBA(0, 0, 0, 0)
+        FocusedBorderThickness: =4
+        Font: =Font.Lato
+        Height: =75
+        HintText: ="Search a product"
+        HoverBorderColor: =ProductSearchBox.BorderColor
+        HoverColor: =Color.White
+        HoverFill: =ColorFade(RGBA(190, 202, 226, 0), 30%)
+        PaddingLeft: =41
+        PaddingRight: =40
+        PaddingTop: =3
+        PressedBorderColor: =RGBA(105, 121, 126, 1)
+        PressedColor: =RGBA(51, 51, 51, 1)
+        PressedFill: =RGBA(255, 255, 255, 1)
+        RadiusBottomLeft: =80
+        RadiusBottomRight: =80
+        RadiusTopLeft: =80
+        RadiusTopRight: =80
+        Reset: =productsearch
+        Size: =25
+        Visible: =searchgroup
+        Width: =507.761194029851
+        X: =29.850746268656735
+        Y: =27.9402985074627
+        ZIndex: =23
+
+    Image2 As image:
+        ApplyEXIFOrientation: =false
+        BorderColor: =RGBA(0, 0, 0, 0)
+        BorderStyle: =BorderStyle.None
+        BorderThickness: =2
+        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+        DisabledFill: =RGBA(0, 0, 0, 0)
+        FocusedBorderThickness: =4
+        Height: =43
+        HoverBorderColor: =RGBA(0, 0, 0, 0)
+        HoverFill: =RGBA(0, 0, 0, 0)
+        Image: =menu_96px_2
+        OnSelect: =ClearCollect(StockView,"List")
+        PressedBorderColor: =RGBA(0, 0, 0, 0)
+        PressedFill: =RGBA(0, 0, 0, 0)
+        Visible: =First(StockView).Value="Grid"
+        Width: =43
+        X: =490
+        Y: =150
+        ZIndex: =24
+
+    Image3 As image:
+        ApplyEXIFOrientation: =false
+        BorderColor: =RGBA(0, 0, 0, 0)
+        BorderStyle: =BorderStyle.None
+        BorderThickness: =2
+        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+        DisabledFill: =RGBA(0, 0, 0, 0)
+        FocusedBorderThickness: =4
+        Height: =43
+        HoverBorderColor: =RGBA(0, 0, 0, 0)
+        HoverFill: =RGBA(0, 0, 0, 0)
+        Image: =menu_96px
+        PressedBorderColor: =RGBA(0, 0, 0, 0)
+        PressedFill: =RGBA(0, 0, 0, 0)
+        Visible: =First(StockView).Value="List"
+        Width: =43
+        X: =490
+        Y: =150
+        ZIndex: =25
+
